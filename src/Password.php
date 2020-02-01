@@ -33,12 +33,8 @@ class Password implements PasswordInterface
 
     public function verify(string $hash): bool
     {
-        if (password_verify($this->password, $hash))
-        {
-            return true;
-        } else {
-            return false;
-        }
+        return password_verify($this->password, $hash);
+
 
     }
 
