@@ -4,30 +4,8 @@
 namespace App\Algorithm;
 
 
-class Argon2i implements AlgorithmInterface
+class Argon2i extends Argon2 implements AlgorithmInterface
 {
+     protected $identifier = PASSWORD_ARGON2I;
 
-    private $identifier = PASSWORD_ARGON2I;
-
-    private $options = [];
-
-    public function __construct($m = null, $t = null, $th = null)
-    {
-
-        if ($m !== null || $t !== null || $th = null) {
-            $this->options = ['memory_cost' => $m, 'time_cost' => $t, 'threads' => $th];
-        }
-
-    }
-
-    public function getIdentifier(): string
-    {
-        return $this->identifier;
-    }
-
-
-    public function getOptions(): array
-    {
-        return $this->options;
-    }
 }
